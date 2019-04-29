@@ -1,0 +1,13 @@
+<input type="text" [(ngModel)]="username" />
+<input type="password" [(ngModel)]="password" />
+<button (click)="login()">Login</button>
+
+<div *ngIf="tmiState$ | async as tmiState">
+    <p>{{tmiState.isConnecting}}</p>
+    <p>{{tmiState.connectionError}}</p>
+    <ul>
+        <li *ngFor="let channel of tmiState.connectedChannels">
+            {{channel}}
+        </li>
+    </ul>
+</div>
